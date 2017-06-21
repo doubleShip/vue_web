@@ -31,7 +31,7 @@ export default {
   ],
   methods: {
     goGoodsCart() {
-      this.$store.state.user.isLogin ? router.push('/goodscart') : router.push('/login');
+      this.$store.state.user.userState.isLogin ? router.push('/goodscart') : router.push('/login');
     }
   }
 };

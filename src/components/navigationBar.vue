@@ -13,22 +13,22 @@
           </el-submenu>
           <el-menu-item index="3"><router-link to="/issues">期刊</router-link></el-menu-item>
           <el-menu-item index="4"><router-link to="/products">书籍</router-link></el-menu-item>
-          <el-menu-item index="4"><router-link to="/goodscart" v-show="this.$store.state.user.isLogin">购物车</router-link></el-menu-item>
+          <el-menu-item index="4"><router-link to="/goodscart" v-show="this.$store.state.userState.user.isLogin">购物车</router-link></el-menu-item>
         </el-menu>
       </el-col>
       <el-col :span="6">
         <ul class="header-userInfo">
           <transition name=fade>
-            <li v-show="this.$store.state.user.isLogin">{{this.$store.state.user.email}}</li>
+            <li v-show="this.$store.state.userState.user.isLogin">{{this.$store.state.userState.user.email}}</li>
           </transition>
 
           <transition name=fade>
-            <li><a @click="logout" v-show="this.$store.state.user.isLogin">注销 <span class="glyphicon glyphicon-log-out"></span></a></li>
+            <li><a @click="logout" v-show="this.$store.state.userState.user.isLogin">注销 <span class="glyphicon glyphicon-log-out"></span></a></li>
           </transition>
 
           <transition name=fade>
             <li>
-              <router-link to="/login" v-show="!this.$store.state.user.isLogin"><span class="glyphicon glyphicon-log-in"></span> 登录</router-link>
+              <router-link to="/login" v-show="!this.$store.state.userState.user.isLogin"><span class="glyphicon glyphicon-log-in"></span> 登录</router-link>
             </li>
           </transition>
         </ul>
@@ -52,7 +52,7 @@
       this.$store.commit('userLogout');
     }
 //    getUserLoginState() {
-//      return this.$store.state.user.isLogin;
+//      return this.$store.state.userState.user.isLogin;
 //    }
   }
 };
