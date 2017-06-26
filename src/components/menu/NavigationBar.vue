@@ -3,7 +3,7 @@
   <div class="l-container">
     <el-row>
       <el-col :span="18">
-        <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
+        <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
           <el-menu-item index="1"><router-link to="/">首页</router-link></el-menu-item>
           <el-submenu index="2">
             <template slot="title">栏目1</template>
@@ -59,22 +59,57 @@
 </script>
 
 <style lang="less">
-  @import '../style/_var.less';
-  .header-navbar {
-    background: #324157;
+    @import '../../style/_var.less';
+    .header-navbar {
+        background: @primary;
 
-    a {
-      text-decoration: none;
-    }
-  }
+        a {
+            text-decoration: none;
+        }
 
-  ul.header-userInfo {
-    list-style: none;
-    li {
-      display: inline-block;
-      padding-top: 20px;
-      color: @white;
+        .el-menu {
+            background: transparent;
+
+            li {
+                &:hover,&.is-active {
+                     background: transparent;
+                     border-bottom-color: @black;
+
+                    a {
+                        color: @black;
+                    }
+                 }
+
+                .el-submenu__title {
+                    .el-submenu__icon-arrow {
+                        color: @black;
+                    }
+                    &:hover,&.is-active {
+                         background: transparent;
+                         border-bottom-color: @black;
+
+                        a {
+                            color: @black;
+                        }
+                    }
+                }
+
+                a {
+                    color: lighten(@black,10%);
+                }
+            }
+        }
+
+
     }
-  }
+
+    ul.header-userInfo {
+        list-style: none;
+            li {
+            display: inline-block;
+            padding-top: 20px;
+            color: @white;
+        }
+    }
 
 </style>
