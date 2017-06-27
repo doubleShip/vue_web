@@ -1,22 +1,22 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HomePage from '@/pages/homePage';
-import Issues from '@/pages/issues';
-import IssuesDetail from '@/pages/issuesDetail';
-import Products from '@/pages/products';
-import ProductsHome from '@/pages/productsHome';
-import GoodsCart from '@/pages/goodsCart';
-import Login from '@/pages/login';
-import ProductsDetailInfo from '@/pages/productsDetailInfo';
-import ProductsPreview from '@/pages/productsPreview';
+import Home from 'pages/home';
+import Issues from 'pages/issues';
+import IssuesDetail from 'pages/issuesDetail';
+import Products from 'pages/products';
+import ProductsHome from 'pages/productsHome';
+import GoodsCart from 'pages/goodsCart';
+import Login from 'pages/login';
+import ProductsDetailInfo from 'pages/productsDetailInfo';
+import ProductsPreview from 'pages/productsPreview';
 Vue.use(Router);
 
 export default new Router({
   mode: 'history',
   routes: [{
     path: '/',
-    name: 'HomePage',
-    component: HomePage
+    name: 'Home',
+    component: Home
   },
   {
     path: '/issues',

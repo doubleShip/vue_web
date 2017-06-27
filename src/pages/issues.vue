@@ -18,14 +18,14 @@ export default {
 
     created() {
         console.log('=====>',this.CONFIG.HTTP_SERVER.getMusicList.url.formatHttpUrl({typeId:2}))
-        this.axios({
-            url: 'http://localhost:8080/api/getIssuesListInfo',
-            method: 'post',
-            isShowLoading: true
-        })
-        .then((response) => {
-            this.issuesListInfo = response.data;
-        })
+//        this.axios({
+//            url: this.CONFIG.HTTP_SERVER.getSignInfo.url,
+//            method: this.CONFIG.HTTP_SERVER.getSignInfo.method,
+//            isShowLoading: true
+//        })
+//        .then((response) => {
+//            this.issuesListInfo = response.data;
+//        })
     },
     components: {
         IssuesList

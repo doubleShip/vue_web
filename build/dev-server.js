@@ -44,9 +44,17 @@ compiler.plugin('compilation', function (compilation) {
 // proxy api requests
 Object.keys(proxyTable).forEach(function (context) {
   var options = proxyTable[context]
+    console.log("==========>",options)
   if (typeof options === 'string') {
-    options = { target: options }
+    options = {
+        target: options,
+        changeOrigin: true,
+        //onProxyReq: function(proxyReq, req, res) {
+        //    //设置代理的响应头
+        //}
+    }
   }
+    console.log("==========>",options)
   app.use(proxyMiddleware(options.filter || context, options))
 })
 

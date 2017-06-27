@@ -3,41 +3,52 @@
  */
 
 export const TYPES = {
-  OPEN_INFO: 'APP/OPEN_INFO',
-  CLOSE_INFO: 'APP/CLOSE_INFO'
+    OPEN_INFO: 'APP/OPEN_INFO',
+    CLOSE_INFO: 'APP/CLOSE_INFO',
+    UPDATE_USERINFO: 'APP/UPDATE_USERINFO'
 };
 
 export const appState = {
-  state: {
-    info: {
-      show: false,
-      msg: '',
-      style: ''
-    }
-  },
-  actions: {
-    openInfo({commit}, data) {
-      commit(TYPES.OPEN_INFO, data);
+    state: {
+        info: {
+            show: false,
+            msg: '',
+            style: ''
+        },
+        userInfo: {},
+        menu: []
     },
-    closeInfo({commit}) {
-      commit(TYPES.CLOSE_INFO);
-    }
-  },
-  mutations: {
-    [TYPES.OPEN_INFO](state, data) {
-      state.info = {
-        show: true,
-        msg: data.msg,
-        style: data.style || 'success'
-      };
+    actions: {
+        openInfo({commit}, data) {
+            commit(TYPES.OPEN_INFO, data);
+        },
+        closeInfo({commit}) {
+            commit(TYPES.CLOSE_INFO);
+        },
+        updateUserInfo({commit}, data) {
+            commit(TYPES.UPDATE_USERINFO, data);
+        }
     },
-    [TYPES.CLOSE_INFO](state) {
-      state.info = {
-        show: false,
-        msg: '',
-        style: ''
-      };
-    }
-  },
-  getters: {}
+    mutations: {
+        [TYPES.OPEN_INFO](state, data) {
+            state.info = {
+                show: true,
+                msg: data.msg,
+                style: data.style || 'success'
+            }
+        },
+        [TYPES.CLOSE_INFO](state) {
+            state.info = {
+                show: false,
+                msg: '',
+                style: ''
+            };
+        },
+        [TYPES.UPDATE_USERINFO](state, data) {
+            state.menu = data.menus[1];
+            delete data.menus;
+            state.userInfo = data;
+        }
+    },
+    getters: {}
 };

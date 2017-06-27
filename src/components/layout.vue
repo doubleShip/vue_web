@@ -2,36 +2,31 @@
 
   <el-row>
     <el-col :span="24">
-      <MessageBar></MessageBar>
-      <NavigationBar></NavigationBar>
-      <div class="l-container">
+      <HeaderView></HeaderView>
+      <div class="l-container app-main">
         <keep-alive>
           <transition name="drop">
             <router-view></router-view>
           </transition>
         </keep-alive>
       </div>
-      <footerView></footerView>
+      <!--<FooterView></FooterView>-->
     </el-col>
   </el-row>
 </template>
 
 <script>
-import NavigationBar from './menu/NavigationBar';
-import MessageBar from './menu/MessageBar';
-import bookCard from './bookCard';
-import footerView from './footerView';
+import HeaderView from './HeaderView';
+import FooterView from './FooterView';
 
 export default {
-  components: {
-    NavigationBar,
-    MessageBar,
-    bookCard,
-    footerView
-  },
-  created() {
-    this.$store.dispatch('loadUser');
-  }
+    components: {
+        HeaderView,
+        FooterView
+    },
+    created() {
+        this.$store.dispatch('loadUser')
+    }
 };
 </script>
 
@@ -41,5 +36,7 @@ export default {
 @import '../style/_var.less';
 @import '../style/_common.less';
 
-
+    .app-main {
+        padding-top: ~"calc(@{header-loginbar-height} + @{header-nav-height} + @{hm-height})";
+    }
 </style>

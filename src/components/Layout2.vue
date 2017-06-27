@@ -17,7 +17,7 @@
 <script>
   import MenuLeft from './menu/MenuLeft';
   import bookCard from './bookCard';
-  import footerView from './footerView';
+  import footerView from './FooterView';
 
   export default {
     components: {
